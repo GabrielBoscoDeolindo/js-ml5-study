@@ -3,6 +3,11 @@ let img;
 let label = "";
 let confidence = "";
 
+function preload() {
+  classifier = ml5.imageClassifier("MobileNet");
+  img = loadImage("images/arara.jpg");
+}
+
 function setup() {
   createCanvas(400, 400);
   classifier.classify(img, gotResult);
@@ -10,12 +15,6 @@ function setup() {
 }
 
 function draw() {
-  background(220);
-}
-
-function preload() {
-  classifier = ml5.imageClassifier("MobileNet");
-  img = loadImage("images/tico.png", imgLoaded);
 }
 
 function gotResult(results){
